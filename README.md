@@ -4,7 +4,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Modules:
 
-npm install
+npm install openai
+
 npm install @mui/material @emotion/react @emotion/styled
 
 First, run the development server:
