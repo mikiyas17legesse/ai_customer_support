@@ -56,7 +56,7 @@
   background-color: #3498db;
   cursor: pointer;
   transition: transform 0.3s ease;
-  margin-top: 20px; /* Adjust this value to add space between the button and paragraph */
+  margin-top: 20px;
 }
 
 .button:hover {
