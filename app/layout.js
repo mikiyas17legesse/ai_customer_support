@@ -1,5 +1,7 @@
+// app/layout.js
 import { Inter, Bebas_Neue, Kanit, Titillium_Web } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400" });
@@ -23,7 +25,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} ${bebasNeue.className} ${kanit.className} ${titilliumWeb.className}`}
       >
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

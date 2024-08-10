@@ -3,8 +3,12 @@ import React from "react";
 import NavBar from "@/components/NavBar";
 import "./page.css";
 import TypewriterText from "@/components/TypewriterText";
+import { useAuth } from "@/context/AuthContext";
+import Link from "next/link";
 
 const Page = () => {
+  const { user } = useAuth();
+
   return (
     <>
       <NavBar />
@@ -19,8 +23,16 @@ const Page = () => {
             The chatbot that allows you to search for whatever fits your needs.
             Academic, business related, and plenty more.
           </p>
-          <button>Get Started</button>
         </div>
+        {user ? (
+          <Link href="/" legacyBehavior>
+            <a className="button">Chatbot</a>
+          </Link>
+        ) : (
+          <Link href="/getstarted" legacyBehavior>
+            <a className="button">Get Started</a>
+          </Link>
+        )}
       </div>
     </>
   );

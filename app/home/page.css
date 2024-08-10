@@ -47,17 +47,18 @@
   margin: 0 auto 10px;
 }
 
-.center-text button {
+.button {
   text-decoration: none;
   text-align: center;
   border: none;
-  padding: 15px 45px;
+  padding: 12px 40px;
   border-radius: 10px;
   background-color: #3498db;
   cursor: pointer;
   transition: transform 0.3s ease;
+  margin-top: 20px; /* Adjust this value to add space between the button and paragraph */
 }
 
-.center-text button:hover {
+.button:hover {
   transform: scale(1.1);
 }
