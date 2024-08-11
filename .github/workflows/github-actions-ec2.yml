@@ -45,7 +45,7 @@ jobs:
         EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
       run: |
         ssh -o StrictHostKeyChecking=no -i key.pem ${{ env.USERNAME }}@${{ env.HOST_DNS }} \
-        "npm install -g pm2"
+        "sudo npm install -g pm2"
 
     - name: Install dependencies on EC2
       env:
