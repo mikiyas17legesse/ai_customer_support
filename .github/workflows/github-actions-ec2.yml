@@ -38,6 +38,15 @@ jobs:
         --exclude 'node_modules' \
         ./ ${{ env.USERNAME }}@${{ env.HOST_DNS }}:${{ env.TARGET_DIR }}/
 
+    - name: Install pm2 on EC2
+      env:
+        HOST_DNS: ${{ secrets.HOST_DNS }}
+        USERNAME: ${{ secrets.USERNAME }}
+        EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+      run: |
+        ssh -o StrictHostKeyChecking=no -i key.pem ${{ env.USERNAME }}@${{ env.HOST_DNS }} \
+        "npm install -g pm2"
+
     - name: Install dependencies on EC2
       env:
         HOST_DNS: ${{ secrets.HOST_DNS }}
