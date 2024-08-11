@@ -1,0 +1,88 @@
+.nav-wrapper {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.nav-header {
+  margin: 0;
+  color: #3498db;
+  font-size: 30px;
+}
+
+.nav-buttons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center; /* Ensure items are aligned in the center */
+}
+
+.nav-buttons li {
+  margin-left: 20px;
+}
+
+.nav-buttons a,
+.nav-buttons button {
+  text-decoration: none;
+  padding: 14px 16px;
+  display: block;
+  text-align: center;
+}
+
+.nav-buttons button {
+  border: none;
+  border-radius: 10px; /* Changed from 10% to 10px for consistency */
+  background-color: black;
+  color: #3498db;
+  padding: 8px 16px; /* Ensure padding is consistent */
+  font-size: 15px;
+}
+
+.nav-buttons button:hover {
+  background-color: rgb(36, 35, 35);
+  margin-bottom: 10px;
+}
+
+.gs-btn {
+  color: black;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.gs-btn span:hover {
+  padding-right: 25px;
+}
+
+.gs-btn span:hover:after {
+  opacity: 1;
+  right: 0;
+}
+
+.gs-btn span {
+  position: relative;
+  transition: 0.5s;
+}
+
+.gs-btn span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: white;
+}
