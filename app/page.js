@@ -27,7 +27,7 @@ export default function Home() {
     ]);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,28 +90,36 @@ export default function Home() {
     <>
       <NavBar></NavBar>
       <Box
-        width="100vw"
-        height="100vh"
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
+        sx={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          bgcolor: "#001f3f",
+        }}
       >
         <Stack
           direction={"column"}
-          width="500px"
-          height="700px"
-          border="1px solid grey"
-          borderRadius="5%"
-          p={2}
-          spacing={3}
+          sx={{
+            width: { xs: "90%", sm: "80%", md: "60%", lg: "40%" },
+            height: { xs: "80%", sm: "70%", md: "60%", lg: "70%" },
+            border: "1px solid #004080",
+            bgcolor: "#002b5c",
+            p: 2,
+            spacing: 3,
+            borderRadius: "8px",
+          }}
         >
           <Stack
             direction={"column"}
             spacing={2}
             flexGrow={1}
-            overflow="auto"
-            maxHeight="100%"
+            sx={{
+              overflowY: "auto",
+              maxHeight: "100%",
+            }}
           >
             {messages.map((message, index) => (
               <Box
@@ -122,21 +130,20 @@ export default function Home() {
                 }
               >
                 <Box
-                  bgcolor={
-                    message.role === "assistant"
-                      ? "primary.main"
-                      : "secondary.main"
-                  }
-                  color="white"
-                  borderRadius={16}
-                  p={3}
+                  sx={{
+                    bgcolor:
+                      message.role === "assistant" ? "#003366" : "#00509E",
+                    color: "white",
+                    borderRadius: "16px",
+                    p: 2,
+                    maxWidth: "70%",
+                    wordWrap: "break-word",
+                  }}
                 >
                   {message.content}
                 </Box>
               </Box>
             ))}
-            {/* Added the div with messagesEndRef */}
-            <div ref={messagesEndRef} />
           </Stack>
           <Stack direction={"row"} spacing={2}>
             <TextField
@@ -144,18 +151,24 @@ export default function Home() {
               fullWidth
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              onKeyPress={handleKeyPress}
-              disabled={isLoading}
+              sx={{
+                bgcolor: "#003366",
+                input: { color: "white" },
+                label: { color: "#99ccff" },
+              }}
             />
-            <div className="send-button">
-              <Button
-                variant="contained"
-                onClick={sendMessage}
-                disabled={isLoading}
-              >
-                {isLoading ? "Sending..." : "Send"}
-              </Button>
-            </div>
+            <Button
+              variant="contained"
+              onClick={sendMessage}
+              sx={{
+                bgcolor: "#005080",
+                "&:hover": {
+                  bgcolor: "#00509E",
+                },
+              }}
+            >
+              Send
+            </Button>
           </Stack>
         </Stack>
       </Box>
