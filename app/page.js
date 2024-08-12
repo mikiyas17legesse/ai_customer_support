@@ -27,7 +27,7 @@ export default function Home() {
     ]);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,88 +90,88 @@ export default function Home() {
     <>
       <NavBar></NavBar>
       <Box
-      sx={{
-        width: '100vw',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bgcolor: '#001f3f', 
-      }}
-    >
-      <Stack
-        direction={'column'}
         sx={{
-          width: { xs: '90%', sm: '80%', md: '60%', lg: '40%' }, 
-          height: { xs: '80%', sm: '70%', md: '60%', lg: '70%' }, 
-          border: '1px solid #004080', 
-          bgcolor: '#002b5c', 
-          p: 2,
-          spacing: 3,
-          borderRadius: '8px',
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          bgcolor: "#001f3f",
         }}
       >
         <Stack
-          direction={'column'}
-          spacing={2}
-          flexGrow={1}
+          direction={"column"}
           sx={{
-            overflowY: 'auto',
-            maxHeight: '100%',
+            width: { xs: "90%", sm: "80%", md: "60%", lg: "40%" },
+            height: { xs: "80%", sm: "70%", md: "60%", lg: "70%" },
+            border: "1px solid #004080",
+            bgcolor: "#002b5c",
+            p: 2,
+            spacing: 3,
+            borderRadius: "8px",
           }}
         >
-          {messages.map((message, index) => (
-            <Box
-              key={index}
-              display="flex"
-              justifyContent={
-                message.role === 'assistant' ? 'flex-start' : 'flex-end'
-              }
-            >
-              <Box
-                sx={{
-                  bgcolor: message.role === 'assistant' ? '#003366' : '#00509E', 
-                  color: 'white',
-                  borderRadius: '16px',
-                  p: 2,
-                  maxWidth: '70%',
-                  wordWrap: 'break-word',
-                }}
-              >
-                {message.content}
-              </Box>
-            </Box>
-          ))}
-        </Stack>
-        <Stack direction={'row'} spacing={2}>
-          <TextField
-            label="Message"
-            fullWidth
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+          <Stack
+            direction={"column"}
+            spacing={2}
+            flexGrow={1}
             sx={{
-              bgcolor: '#003366', 
-              input: { color: 'white' }, 
-              label: { color: '#99ccff' }, 
+              overflowY: "auto",
+              maxHeight: "100%",
             }}
-          />
-          <Button
-            variant="contained"
-            onClick={sendMessage}
-            sx={{
-              bgcolor: '#005080', 
-              '&:hover': {
-                bgcolor: '#00509E', 
-              },
-            }}
-            
           >
-            Send
-          </Button>
+            {messages.map((message, index) => (
+              <Box
+                key={index}
+                display="flex"
+                justifyContent={
+                  message.role === "assistant" ? "flex-start" : "flex-end"
+                }
+              >
+                <Box
+                  sx={{
+                    bgcolor:
+                      message.role === "assistant" ? "#003366" : "#00509E",
+                    color: "white",
+                    borderRadius: "16px",
+                    p: 2,
+                    maxWidth: "70%",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  {message.content}
+                </Box>
+              </Box>
+            ))}
+          </Stack>
+          <Stack direction={"row"} spacing={2}>
+            <TextField
+              label="Message"
+              fullWidth
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              sx={{
+                bgcolor: "#003366",
+                input: { color: "white" },
+                label: { color: "#99ccff" },
+              }}
+            />
+            <Button
+              variant="contained"
+              onClick={sendMessage}
+              sx={{
+                bgcolor: "#005080",
+                "&:hover": {
+                  bgcolor: "#00509E",
+                },
+              }}
+            >
+              Send
+            </Button>
+          </Stack>
         </Stack>
-      </Stack>
-    </Box>
+      </Box>
     </>
   );
 }
